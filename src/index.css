@@ -14,5 +14,5 @@ body {
 }
 
 body {
-    @apply bg-bodyBackgroud dark:bg-bodyBackgroundDark font-sans text-lg;
+    @apply bg-bodyBackground dark:bg-bodyBackgroundDark font-sans text-lg;
 }

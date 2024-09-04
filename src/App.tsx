@@ -1,10 +1,24 @@
+import { Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import NotFound from './components/NotFound/NotFound';
+
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <h1 className='font-extrabold text-6xl'>Hello World</h1>
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={"Home"} />
+          <Route path="characters" element={"Characters List"} />
+          <Route path="character/:id" element={"Character Page"} />
+          <Route path="locations" element={"Locations List"} />
+          <Route path="location/:id" element={"Location Page"} />
+          <Route path="user/:id" element={"User page"} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   )
 }

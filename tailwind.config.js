@@ -16,8 +16,8 @@ export default {
         sans: ['Oswald', 'Roboto', 'sans-serif'], 
       },
       colors: {
-        bodyBackgroud: '#f8f8f8',
-        bodyBackgroundDark: '#f8f8f8'
+        bodyBackground: '#f8f8f8',
+        bodyBackgroundDark: '#282828'
       },
       width: {
         w10: '10%',
