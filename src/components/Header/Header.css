@@ -1,0 +1,101 @@
+header {
+    @apply sticky top-0 h-24 md:h-32 flex max-md:flex-wrap justify-center items-center z-10;
+
+    div.logo-section {
+        @apply w-w50 sm:w-w20 min-w-24 flex justify-center items-center h-24 md:h-32;
+
+        div.hamburger {
+            @apply basis-1/2 md:hidden flex items-center justify-center text-black dark:text-white;
+        }
+
+        div.logo {
+            @apply  md:basis-full flex justify-center h-24 md:h-32;
+
+            img {
+                @apply object-contain;
+            }
+        }
+    }
+
+    nav.desktop {
+        @apply w-w60 flex justify-center items-center text-2xl max-sm:hidden dark:text-white text-black;
+
+        ul {
+            @apply w-full flex justify-evenly items-center;
+        }
+
+        li:hover {
+            @apply underline decoration-4
+        }
+    }
+
+    nav.mobile {
+        @apply w-full order-3 block text-2xl dark:text-white text-black;
+
+        ul {
+            @apply w-full flex flex-col;
+
+            li {
+                @apply text-center ;
+
+                &:hover {
+                    @apply underline;
+                }
+            }
+        }
+    }
+
+    div.user-section {
+        @apply w-w50 sm:w-w20 h-full flex justify-center items-center  dark:text-white;
+
+        div.registration {
+            @apply  md:justify-center justify-end items-center;
+    
+            button {
+                @apply p-2 md:p-3 bg-red-500 text-white text-xl rounded-2xl mr-2;
+            }
+        }
+
+        div.profile {
+            @apply w-full justify-center;
+        }
+
+    }
+
+}
+
+div.modal-bg {
+    @apply fixed inset-0 bg-black bg-opacity-20 backdrop-blur-md z-20  justify-center items-center;
+
+    div.modal {
+        @apply relative flex flex-col bg-white w-full md:w-w70 h-5/6 rounded-2xl;
+
+        div.modal-close {
+            @apply mt-3 absolute top-0 mx-5;
+        }
+
+        div.forms {
+            @apply relative flex mt-12 h-full;
+        }
+
+        .side-panel {
+            @apply bg-red-400 absolute text-center z-10 w-w50 flex h-full justify-center items-center;
+
+            .auth-section {
+                @apply w-full flex-col justify-center items-center text-white;
+
+                h2 {
+                    @apply font-bold text-3xl lg:text-5xl my-12;
+                }
+
+                p {
+                    @apply font-semibold  text-xl lg:text-3xl my-8;
+                }
+
+                button {
+                    @apply text-xl lg:text-3xl  py-2 w-w80 lg:w-w50 px-2 sm:px-6 rounded-xl bg-black;
+                }
+            }
+        }
+    }
+}

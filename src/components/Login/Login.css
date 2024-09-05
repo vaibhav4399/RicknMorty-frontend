@@ -1,0 +1,22 @@
+div.login-section {
+    @apply w-w40 h-full mx-6 absolute left-0 flex-col justify-center items-center;
+
+    .section-title {
+        @apply text-center font-semibold text-4xl my-6;
+    }
+    .section-body {
+        @apply w-full mx-2 flex items-center justify-center;
+
+        .section-form {
+            @apply w-full flex flex-col justify-center items-center;
+
+            input {
+                @apply border-2 w-full p-2 my-3 rounded-xl
+            }
+
+            button {
+                @apply bg-red-400 text-white rounded-xl p-3 w-w80 text-xl;
+            }
+        }
+    }
+}

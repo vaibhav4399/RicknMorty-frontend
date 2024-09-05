@@ -2,6 +2,8 @@ import { useState, createContext } from "react";
 import { ToastContainer, Bounce } from "react-toastify";
 import IDataContext from "../../interfaces/DataContext";
 import { Outlet } from "react-router-dom";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 import 'react-toastify/ReactToastify.min.css'
 
@@ -21,6 +23,7 @@ const Layout = () => {
     return (
         <dataContext.Provider value={{userID, setUserID, isLoggedIn, setIsLoggedIn}}>
             <div>
+                <Header />
                 <main>
                     <ToastContainer
                         newestOnTop={true}
@@ -31,6 +34,7 @@ const Layout = () => {
                     />
                     <Outlet />
                 </main>
+                <Footer />
             </div>
         </dataContext.Provider>
     );
