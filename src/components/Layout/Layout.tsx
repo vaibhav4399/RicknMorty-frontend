@@ -17,11 +17,14 @@ export const dataContext = createContext<IDataContext | undefined>(undefined);
 
 const Layout = () => {
 
-    const [userID, setUserID] = useState("");
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [userID, setUserID] = useState(sessionStorage.getItem("userID")?? "");
+    const [isLoggedIn, setIsLoggedIn] = useState(() => {
+        return sessionStorage.getItem("isLoggedIn") === 'true';
+    });
+    const [isModal, setIsModal] = useState(false);
 
     return (
-        <dataContext.Provider value={{userID, setUserID, isLoggedIn, setIsLoggedIn}}>
+        <dataContext.Provider value={{userID, setUserID, isLoggedIn, setIsLoggedIn, isModal, setIsModal}}>
             <div>
                 <Header />
                 <main>

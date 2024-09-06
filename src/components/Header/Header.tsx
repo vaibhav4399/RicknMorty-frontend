@@ -6,6 +6,7 @@ import { faBars, faXmark, faUser } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {AnimatePresence, motion} from 'framer-motion';
 import IDataContext from '../../interfaces/DataContext';
+import { handleClick, handleLoginView, handleModal, handleResize } from '../../hooks/useHandlers';
 
 import Login from '../Login/Login';
 
@@ -26,34 +27,17 @@ const Header = () => {
         );
     }
     
-    const {isLoggedIn} = context;
+    const {isLoggedIn, isModal, setIsModal} = context;
     const [isClicked, setIsClicked] = useState(false);
-    const [isModal, setIsModal] = useState(false);
     const [loginView, setLoginView] = useState(false);
 
-    const handleModal = () => {
-        setIsModal(!isModal);
-    }
-
-    const handleLoginView = () => {
-        setLoginView(!loginView);
-    }
-
-    const handleClick = () => {
-        setIsClicked(!isClicked);
-    }
-
-    const handleResize = () => {
-        if(window.innerWidth > 640) {
-            setIsClicked(false);
-        }
-    }
+    
 
     useEffect(() => {
-        window.addEventListener('resize', handleResize);
+        window.addEventListener('resize', () => handleResize(setIsClicked));
 
         return () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener('resize', () => handleResize(setIsClicked));
         }
     },[])
 
@@ -62,7 +46,7 @@ const Header = () => {
         
             <header className={isClicked ? 'h-64': 'h-32'}>
                 <div className='logo-section'>
-                    <div onClick={handleClick} className='hamburger'>
+                    <div onClick={() => handleClick(isClicked, setIsClicked)} className='hamburger'>
                         <FontAwesomeIcon className='text-3xl' icon={faBars}/>
                     </div>
                     <div className='logo'>
@@ -78,7 +62,7 @@ const Header = () => {
                 </nav>
                 <div className={`user-section ${isLoggedIn ? 'border-l border-b border-black dark:border-white' : ''}`}>
                     <div className={`registration ${isLoggedIn ? 'hidden': 'flex'} `}>
-                        <button onClick={handleModal} >Register/Login</button>
+                        <button onClick={() => handleModal(isModal, setIsModal)} >Register/Login</button>
                     </div>
                     <div className={`profile ${isLoggedIn ? 'flex' : 'hidden'}`}>
                         <FontAwesomeIcon className='text-3xl' icon={faUser} />
@@ -88,7 +72,7 @@ const Header = () => {
             <div className={`modal-bg ${isLoggedIn ? 'hidden': isModal ? 'flex' : 'hidden'}` }>
                 <div className='modal '>
                     <div className={`modal-close ${loginView ? 'left-0' : 'right-0'} `}>
-                        <FontAwesomeIcon onClick={() => {handleModal(); setLoginView(false)}} className='text-black text-3xl cursor-pointer' icon={faXmark} />
+                        <FontAwesomeIcon onClick={() => { handleModal(isModal, setIsModal); setLoginView(false) }} className='text-black text-3xl cursor-pointer' icon={faXmark} />
                     </div>
                     <div className='forms'>
                         <Login loginView={loginView} />
@@ -115,12 +99,12 @@ const Header = () => {
                                 className={` auth-section ${loginView ? "flex" : "hidden"}`}>
                                 <h2>Hey there New Here !!</h2>
                                 <p>Create an account first if you dont have one.</p>
-                                <button onClick={handleLoginView}> Register </button>
+                                <button onClick={() => handleLoginView(loginView, setLoginView)}> Register </button>
                             </div>
                             <div className={` auth-section ${loginView ? "hidden" : "flex"}`}>
                                 <h2>Already have an account !!</h2>
                                 <p>Come on log into your account. Its waiting  for you !!.</p>
-                                <button onClick={handleLoginView}> Login </button>
+                                <button onClick={() => handleLoginView(loginView, setLoginView)}> Login </button>
                             </div>
                         </motion.div>
                     </AnimatePresence>
