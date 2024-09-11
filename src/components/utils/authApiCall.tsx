@@ -25,11 +25,11 @@ export const loginAuth = async ({username, password, context}: authProps) => {
         password: password
     }
 
-    await axios.post(url,data)
+     axios.post(url,data,{withCredentials: true})
     .then((response) => {
         sessionStorage.setItem("fa_ft", JSON.stringify(response.data));
         setUserID('1')
-        sessionStorage.setItem("userID", '1')
+        sessionStorage.setItem("userID", response.data.userID)
         setIsLoggedIn(true);
         sessionStorage.setItem("isLoggedIn", "true");
         setIsModal(false);
@@ -54,11 +54,11 @@ export const registerAuth = async ({username, password, firstname, lastname, ema
         email: email
     }
 
-    await axios.post(url, data)
+    await axios.post(url, data, {withCredentials: true})
     .then((response) => {
         sessionStorage.setItem("fa_ft", JSON.stringify(response.data));
         setUserID('1');
-        sessionStorage.setItem('userID', '1');
+        sessionStorage.setItem('userID', response.data.userID);
         setIsLoggedIn(true);
         sessionStorage.setItem("isLoggedIn", "true");
         setIsModal(false);

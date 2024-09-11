@@ -40,8 +40,14 @@ const Login = ({loginView}: {loginView: boolean}) => {
             return null;
         }
 
+        
         if(context){
-            loginAuth(uname,pass, context);
+            const data = {
+                username: uname,
+                password: pass,
+                context: context
+            }
+            loginAuth(data);
         }
         else{
             toast.error("Something went wrong");
