@@ -28,13 +28,15 @@ const Layout = () => {
 
     const url = backend_URL + '/check-session';
 
+    /**
+     * * Function to check if the User session is already stored in a cookie during previous login
+     */
+
     const checkSession = async () => {
         try {
             const response = await axios.get(url,{
                 withCredentials: true
             })
-
-            console.log(response)
 
             if(response.data){
 
@@ -47,9 +49,13 @@ const Layout = () => {
             }
         }
         catch(err) {
-            console.error(err?.toString());
+            toast.error(err?.toString());
         }
     }
+
+    /**
+     * * UseEffect to check for the session on during component mount
+     */
 
     useEffect(() => {
         checkSession();
