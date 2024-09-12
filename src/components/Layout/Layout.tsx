@@ -57,7 +57,7 @@ const Layout = () => {
 
     return (
         <dataContext.Provider value={{userID, setUserID, isLoggedIn, setIsLoggedIn, isModal, setIsModal}}>
-            <div>
+            <>
                 <Header />
                 <main>
                     <ToastContainer
@@ -70,7 +70,7 @@ const Layout = () => {
                     <Outlet />
                 </main>
                 <Footer />
-            </div>
+            </>
         </dataContext.Provider>
     );
 

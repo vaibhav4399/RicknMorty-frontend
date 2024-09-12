@@ -1,55 +1,47 @@
 header {
-    @apply sticky top-0 h-24 md:h-32 flex max-md:flex-wrap justify-center items-center z-10;
+    @apply w-full fixed max-sm:flex-wrap min-h-20 flex justify-between z-10 bg-gray-400 py-3;
 
     div.logo-section {
-        @apply w-w50 sm:w-w20 min-w-24 flex justify-center items-center h-24 md:h-32;
+        @apply w-w50  sm:w-w30 flex justify-evenly items-center;
 
-        div.hamburger {
-            @apply basis-1/2 md:hidden flex items-center justify-center text-black dark:text-white;
+        .hamburger {
+            @apply sm:hidden
         }
 
-        div.logo {
-            @apply  md:basis-full flex justify-center h-24 md:h-32;
-
-            img {
-                @apply object-contain;
-            }
+        img {
+            @apply object-contain;
         }
     }
 
-    nav.desktop {
-        @apply w-w60 flex justify-center items-center text-2xl max-sm:hidden dark:text-white text-black;
+    nav {
+        @apply w-full hidden sm:flex text-2xl justify-center items-center;
 
         ul {
-            @apply w-full flex justify-evenly items-center;
+            @apply w-full flex justify-evenly;
         }
 
-        li:hover {
-            @apply underline decoration-4
+        li {
+            @apply list-none;
         }
     }
 
     nav.mobile {
-        @apply w-full order-3 block text-2xl dark:text-white text-black;
+        @apply w-full block order-3;
 
         ul {
             @apply w-full flex flex-col;
 
             li {
-                @apply text-center ;
-
-                &:hover {
-                    @apply underline;
-                }
+                @apply text-center my-2 ;
             }
         }
     }
 
     div.user-section {
-        @apply w-w50 sm:w-w20 h-full flex justify-center items-center  dark:text-white;
+        @apply w-w50  sm:w-w20 flex justify-end items-center  dark:text-white;
 
         div.registration {
-            @apply  md:justify-center justify-end items-center;
+            @apply  justify-end items-center;
     
             button {
                 @apply p-2 md:p-3 bg-red-500 text-white text-xl rounded-2xl mr-2;
@@ -57,7 +49,7 @@ header {
         }
 
         div.profile {
-            @apply w-full justify-center;
+            @apply w-full justify-end mr-5;
         }
 
     }
@@ -68,7 +60,7 @@ div.modal-bg {
     @apply fixed inset-0 bg-black bg-opacity-20 backdrop-blur-md z-20  justify-center items-center;
 
     div.modal {
-        @apply relative flex flex-col bg-white w-full md:w-w70 h-5/6 rounded-2xl;
+        @apply relative flex flex-col bg-white w-full md:w-w70 h-5/6 rounded-2xl overflow-x-clip overflow-y-auto;
 
         div.modal-close {
             @apply mt-3 absolute top-0 mx-5;
@@ -79,7 +71,7 @@ div.modal-bg {
         }
 
         .side-panel {
-            @apply bg-red-400 absolute text-center z-10 w-w50 flex h-full justify-center items-center;
+            @apply bg-red-400 absolute text-center z-10 w-w50 flex justify-center items-center text-wrap;
 
             .auth-section {
                 @apply w-full flex-col justify-center items-center text-white;
@@ -93,7 +85,7 @@ div.modal-bg {
                 }
 
                 button {
-                    @apply text-xl lg:text-3xl  py-2 w-w80 lg:w-w50 px-2 sm:px-6 rounded-xl bg-black;
+                    @apply text-xl lg:text-2xl w-w80 lg:w-w50 p-1 sm:px-6 rounded-xl bg-black;
                 }
             }
         }
