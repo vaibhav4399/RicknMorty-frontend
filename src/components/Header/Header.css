@@ -1,5 +1,5 @@
 header {
-    @apply w-full fixed max-sm:flex-wrap min-h-20 flex justify-between z-10 bg-gray-400 py-3;
+    @apply w-full fixed top-0 max-sm:flex-wrap min-h-20 flex justify-between z-10 bg-neutral-100  py-3;
 
     div.logo-section {
         @apply w-w50  sm:w-w30 flex justify-evenly items-center;
@@ -38,10 +38,10 @@ header {
     }
 
     div.user-section {
-        @apply w-w50  sm:w-w20 flex justify-end items-center  dark:text-white;
+        @apply w-w50  sm:w-w20 flex justify-end sm:justify-center items-center  dark:text-white;
 
         div.registration {
-            @apply  justify-end items-center;
+            @apply  justify-center items-center;
     
             button {
                 @apply p-2 md:p-3 bg-red-500 text-white text-xl rounded-2xl mr-2;
@@ -49,7 +49,7 @@ header {
         }
 
         div.profile {
-            @apply w-full justify-end mr-5;
+            @apply w-full justify-end sm:justify-center mr-5;
         }
 
     }

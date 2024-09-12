@@ -6,6 +6,12 @@ import { dataContext } from '../Layout/Layout';
 
 import './Login.css'
 
+/**
+ * * Function to handle the User login
+ * @param loginView ---> To open the login form on the modal
+ * @returns Returns the login component 
+ */
+
 const Login = ({loginView}: {loginView: boolean}) => {
 
     const username = useRef<HTMLInputElement>(null);
@@ -13,6 +19,11 @@ const Login = ({loginView}: {loginView: boolean}) => {
 
     const context: IDataContext | undefined = useContext(dataContext);
     
+    /**
+     * * Function to handle the submit event for a form
+     * @param e ---> Form Submit event
+     * @returns Returns null or some error for the login component call or lgs in the user
+     */
 
     const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

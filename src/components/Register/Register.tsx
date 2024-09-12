@@ -2,9 +2,15 @@ import { useRef, useContext } from 'react';
 import { dataContext } from '../Layout/Layout';
 import { toast } from 'react-toastify';
 import IDataContext from '../../interfaces/DataContext';
+import { registerAuth } from '../utils/authApiCall';
 
 import './Register.css'
-import { registerAuth } from '../utils/authApiCall';
+
+/**
+ * * Function to Handle the Registration of the User
+ * @param loginView ---> If true shows the login form on the modal
+ * @returns returns the User Registraion component
+ */
 
 const Register = ({ loginView }: { loginView: boolean }) => {
 
@@ -16,6 +22,12 @@ const Register = ({ loginView }: { loginView: boolean }) => {
 
 
     const context: IDataContext | undefined = useContext(dataContext);
+
+    /**
+     * * Function to handle the Submit event of the registration form
+     * @param e ---> Submit Event Handler for the Registration form
+     * @returns Returns null or Registration error or Logs in the user
+     */
 
     const handleRegisterSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
