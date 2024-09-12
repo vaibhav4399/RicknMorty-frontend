@@ -44,13 +44,13 @@ const Header = () => {
     return (
         <>
         
-            <header className={isClicked ? 'h-64': 'h-32'}>
+            <header>
                 <div className='logo-section'>
                     <div onClick={() => handleClick(isClicked, setIsClicked)} className='hamburger'>
-                        <FontAwesomeIcon className='text-3xl' icon={faBars}/>
+                        <FontAwesomeIcon className='text-3xl' icon={isClicked ? faXmark : faBars}/>
                     </div>
                     <div className='logo'>
-                        <img alt="logo" src="/RickMorty_logo.webp" />
+                        <img alt="logo" src="/RickMorty_logo.webp" height="200px" width="100px" />
                     </div>
                 </div>
                 <nav className={isClicked ? 'mobile' : 'desktop' }>
@@ -60,7 +60,7 @@ const Header = () => {
                         <li className={isLoggedIn ? '' : 'hidden'} ><a>Favourites ❤️ </a></li>
                     </ul>
                 </nav>
-                <div className={`user-section ${isLoggedIn ? 'border-l border-b border-black dark:border-white' : ''}`}>
+                <div className={`user-section`}>
                     <div className={`registration ${isLoggedIn ? 'hidden': 'flex'} `}>
                         <button onClick={() => handleModal(isModal, setIsModal)} >Register/Login</button>
                     </div>
